@@ -18,12 +18,12 @@ def main():
     run_test_make_less_simple_string()
 
     # ------------------------------------------------------------------
-    # TODO: 8. Uncomment the tests below before working TO DO 9.
+    # Done: 8. Uncomment the tests below before working TO DO 9.
     #   They launch annoying rg.RoseWindows on each run that you don't want
     #   until you get to TO DO 9 and 10.
     # ------------------------------------------------------------------
-    # run_test_draw_shapes()
-    # run_test_rectangles_from_circles()
+    run_test_draw_shapes()
+    run_test_rectangles_from_circles()
 
 
 def run_test_make_simple_list():
@@ -82,7 +82,7 @@ def make_simple_list(m, n):
 def run_test_make_simple_string():
     """ Tests the   make_simple_string    function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # done: 4. Implement this TEST function.
     #   It TESTS the  make_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -94,13 +94,13 @@ def run_test_make_simple_string():
     print('--------------------------------------------------')
 
     # Test 1:
-    expected = '5-6-7-8-9-10-11-12-13'
+    expected = '5-6-7-8-9-10-11-12-13-'
     actual = make_simple_string(5, 13)
     print('Expected:', expected)
     print('Actual:  ', actual)
 
     # Test 2 (add your test here):
-    expected = '4-5-6-9-10-11-12-13-14-15...-115'
+    expected = '4-5-6-9-10-11-12-13-14-15...-115-'
     actual = make_simple_string(4, 115)
     print('Expected:', expected)
     print('Actual:  ', actual)
@@ -136,7 +136,7 @@ def make_simple_string(m, n):
 def run_test_make_less_simple_string():
     """ Tests the   make_less_simple_string    function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # Done: 6. Implement this TEST function.
     #   It TESTS the  make_less_simple_string  function defined below.
     #   Include at least **   2   ** tests.
     #
@@ -181,12 +181,12 @@ def make_less_simple_string(m, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -----------------------------------------------------------------
-    numbers = ''
-    for k in range(m, n + 1, 1):
-        numbers = numbers + str(m + k) + '-'
+    numbers = str(m)
+    for k in range(m+1, n + 1, 1):
+        numbers = numbers + '-' + str(k)
     return numbers
 
 def run_test_draw_shapes():
@@ -267,7 +267,7 @@ def draw_shapes(shapes, window):
       :type window:  rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function. Make sure you do TO DO 8 in main first!
+    # done: 9. Implement and test this function. Make sure you do TO DO 8 in main first!
     #     The testing code is already written for you (that you just enabled in TO DO 8).
     #
     ####################################################################
@@ -277,6 +277,9 @@ def draw_shapes(shapes, window):
     # FWIW: The word for ideas like this is "polymorphism".
     ####################################################################
     # ------------------------------------------------------------------
+    for k in range(len(shapes)):
+        shapes[k].attach_to(window)
+        window.render(.3)
 
 
 def run_test_rectangles_from_circles():
@@ -389,6 +392,12 @@ def rectangles_from_circles(circles):
     #            in this function, so DON'T draw anything in here!
     ####################################################################
     # ------------------------------------------------------------------
+    rectangles = []
+    for k in range(len(circles)):
+        rectangles[k] = rg.Rectangle(rg.Point(circles[k].center.x + circles[k].radius, circles[k].center.y + circles[k].radius), rg.Point(circles[k].center.x - circles[k].radius,circles[k].center.y - circles[k].radius)))
+        rg.Rectangle()
+    return rectangles
+
 
 
 # ----------------------------------------------------------------------
